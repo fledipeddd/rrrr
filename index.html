@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Perch&eacute;?</title>
+	<link rel="stylesheet" href="style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<a id="skip" onclick="skip()"></a>
+	<audio id="myAudio" loop src="data/it-01.m4a" preload="auto"></audio>
+	<a id="ps" onclick="onoff()">Play</a>
+	<a id="nm" style="display: none">1/17</a>
+	<a id="title" onclick="toggleMenu()">Perch&eacute; stai mentendo?</a>
+	<a id="lng" onclick="changeLang()">It</a>
+
+	<p id="abstract">
+		Cosa vediamo quando ci troviamo di fronte ad un oggetto prodotto algoritmicamente? Ad un doppio velo. La funzione di un processo algoritmico &egrave; propriamente quella di sopprimire ogni domanda sulla sua natura: di fronte ad una traduzione algoritmica, la domanda <span class="itlc">cos&rsquo;&egrave;?</span> &egrave; stata risposta a priori: la consapevolezza fenomenologica dei suoi processi viene impedita. L&rsquo;output &egrave; un significante dei nostri significanti, una rappresentazione delle nostre forme di rappresentare. Qui il profondo silenzio delle procedure (tutte le macchine sono celibi): i significanti vengono sradicati e ridotti a significanti puri, ovvero ineluttabilmente alieni ad ogni significato. Mancano d&apos;attenzione...
+    <br><br>
+    Concatenando in traduzioni incrociate di uno stesso testo quattro traduttori, si avranno infinite (sottili) variazioni del testo di partenza. Queste differenze &mdash; strutturali, terminologiche, grammaticali &mdash; articolano l&apos;atteggiamento insignificante (incapace di interpretare) delle procedure algoritmiche, dedite rigorosamente ad evaquare significanti. La lettura, la voce, ponendosi come parola intransitiva, vuole e pu&ograve; riconquistare dalla macchinicit&agrave; dei processi l&apos;erotismo pi&ugrave; proprio del linguaggio: quello della <span class="itlc">volutt&agrave; dei significanti.</span> Leggete, dunque! date voce a questi testi deceduti, godete del nonsenso in cui sono (siamo) stati gettati, rinvigorendo cos&igrave; la detumescenza del senso.
+	</p>
+
+	<div id="palletta1"></div>
+	<div id="palletta2"></div>
+	<div id="palletta3"></div>
+	<div id="palletta4"></div>
+
+<script type="text/javascript">
+	// tendina
+	const pBack = document.getElementsByTagName('a');
+
+	function toggleMenu() {
+		var boxTesto = document.getElementById('abstract');
+
+		if (boxTesto.style.display == "block") {
+			boxTesto.style.display = "none";
+		} else {
+			boxTesto.style.display = "block";
+		}
+
+		for (var i = 0; i < pBack.length; i++) {
+			if (pBack[i].style.background == "rgb(200, 200, 200)") {
+				pBack[i].style.background = "white";
+			} else {
+				pBack[i].style.background = "rgb(200, 200, 200)";
+			}
+		}
+	};
+
+	// audio
+	g = 1;
+	var isPlaying = false;
+	var myAudio = document.getElementById("myAudio");
+	var audArr = ["data/it-01.m4a", "data/it-02.m4a", "data/it-03.m4a", "data/it-04.m4a", "data/it-05.m4a", "data/it-06.m4a", "data/it-07.m4a", "data/it-08.m4a", "data/it-09.m4a", "data/it-10.m4a", "data/it-11.m4a", "data/it-12.m4a", "data/it-13.m4a", "data/it-14.m4a", "data/it-15.m4a", "data/it-16.m4a", "data/it-17.m4a"];
+
+	var txt1 = document.getElementById("ps");
+	var txt2 = document.getElementById("skip");
+	var tm = document.querySelectorAll("#palletta1, #palletta2, #palletta3, #palletta4");
+
+	var nm = document.getElementById("nm");
+	var nmArr = ["1/17", "2/17", "3/17", "4/17", "5/17", "6/17", "7/17", "8/17", "9/17", "10/17", "11/17", "12/17", "13/17", "14/17", "15/17", "16/17", "17/17"];
+
+	function onoff() {
+		isPlaying ? myAudio.pause() : myAudio.play();
+	};
+
+	myAudio.onplaying = function() {
+		isPlaying = true;
+
+		txt1.innerHTML = "Stop";
+		txt2.innerHTML = "Skip";
+
+		nm.style.display = "block";
+
+		for (var i = 0; i < tm.length; i++) {
+			tm[i].style.animation = "tempo 3s infinite";
+			tm[i].style.background = "rgb(200, 200, 200)";
+		}
+	};
+
+	myAudio.onpause = function() {
+		isPlaying = false;
+
+		txt1.innerHTML = "Play";
+		txt2.innerHTML = "";
+
+		for (var i = 0; i < tm.length; i++) {
+			tm[i].style.animationPlayState = "paused";
+		}
+	};
+
+	function skip() {
+		myAudio.src = audArr[g];
+		nm.innerHTML = nmArr[g];
+
+		if (g == 16) {
+			g = 0;
+		} else {
+			g++;
+		}
+
+		myAudio.play();
+	};
+
+  // lingua
+  x = 1;
+  var lng = document.getElementById("lng");
+  var abst = document.getElementById("abstract");
+
+  function changeLang() {
+    if (x == 1) {
+      x = 0;
+      lng.innerHTML = "En";
+      abst.innerHTML = "What do we see when we are facing an algorithmically produced object? A double veil. The function of an algorithmic process is properly to suppress any question about the nature of its output; for instance, when faced with an algorithmic translation the question what is it? has been answered <span class='itlc'>a priori</span>: phenomenological awareness of its processes is prevented. It is a signifier of our signifiers, a representation of our forms of representing.<br><br>Concatenating in cross-translations of the same text four translators* will result in infinite (subtle) variations of the source text. In these differences, algorithmic meaninglessness &mdash; devoted solely to returning signifiers &mdash; becomes apparent. The collection is embodyed through reading, which, posing as an intransitive word, wants to give back to the machinicity of processes the pleasure most proper to language: that of the <span class='itlc'>voluptuousness of signifiers.</span>";
+    } else {
+      x++;
+      lng.innerHTML = "It";
+      abst.innerHTML = "Cosa vediamo quando ci troviamo di fronte ad un oggetto prodotto algoritmicamente? Ad un doppio velo. La funzione di un processo algoritmico &egrave; propriamente quella di sopprimire ogni domanda sulla sua natura: di fronte ad una traduzione algoritmica, la domanda <span class='itlc'>cos&rsquo;&egrave;?</span> &egrave; stata risposta a priori: la consapevolezza fenomenologica dei suoi processi viene impedita. L&rsquo;output &egrave; un significante dei nostri significanti, una rappresentazione delle nostre forme di rappresentare. Qui il profondo silenzio delle procedure (tutte le macchine sono celibi): i significanti vengono sradicati e ridotti a significanti puri, ovvero ineluttabilmente alieni ad ogni significato. Mancano d&apos;attenzione...<br><br>Concatenando in traduzioni incrociate di uno stesso testo quattro traduttori, si avranno infinite (sottili) variazioni del testo di partenza. Queste differenze &mdash; strutturali, terminologiche, grammaticali &mdash; articolano l&apos;atteggiamento insignificante (incapace di interpretare) delle procedure algoritmiche, dedite rigorosamente ad evaquare significanti. La lettura, la voce, ponendosi come parola intransitiva, vuole e pu&ograve; riconquistare dalla macchinicit&agrave; dei processi l&apos;erotismo pi&ugrave; proprio del linguaggio: quello della <span class='itlc'>volutt&agrave; dei significanti.</span> Leggete, dunque! date voce a questi testi deceduti, godete del nonsenso in cui sono (siamo) stati gettati, rinvigorendo cos&igrave; la detumescenza del senso.";
+    }
+  };
+
+</script>
+</html>

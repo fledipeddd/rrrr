@@ -1,0 +1,172 @@
+* {
+	margin: 0;
+	scrollbar-width: none;
+	color: rgb(255, 0, 75);
+	background: rgb(255, 255, 255);
+	font-family: serif;
+}
+
+::selection {
+	background: rgb(200, 200, 200);
+}
+
+body {
+	top: 0;
+	overflow: hidden;
+	font-size: 30pt;
+	line-height: 32pt;
+}
+
+a {
+	background: white;
+}
+
+a:hover {
+	animation: click 0.7s linear infinite ;
+	cursor: pointer;
+}
+
+a:active {
+	background: rgb(200, 200, 200);
+}
+
+a#ps {
+	z-index: 4;
+	position: fixed;
+	top: 45%;
+	margin-left: 3px;
+}
+
+a#skip {
+	z-index: 4;
+	position: fixed;
+	top: 45%;
+	left: 30%;
+}
+
+a#title {
+	position: fixed;
+	z-index: 3;
+	position: absolute;
+	margin-left: 3px;
+	margin-top: 3px;
+}
+
+#abstract {
+	z-index: 2;
+	position: fixed;
+	padding: 110px 3px 3px;
+	padding-bottom: 1000px;
+	width: 100%;
+	display: none;
+	background: none;
+	overflow-y: scroll;
+	height: 60%;
+}
+
+a#nm {
+	position: fixed;
+	z-index: 3;
+	top: calc(100% - 44px);
+	margin-left: 30%;
+}
+
+a#lng {
+	position: fixed;
+	z-index: 3;
+	top: calc(100% - 44px);
+	margin-left: 3px;
+}
+
+.itlc {
+  background: none;
+	font-style: italic;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+[id^='palletta'] {
+	background: rgb(200, 200, 200);
+	z-index: 1;
+	position: absolute;
+	height: 30px;
+	width: 30px;
+	border-radius: 100%;
+}
+
+#palletta1 {
+	top: 25%;
+	left: 3px;
+}
+
+#palletta2 {
+	top: 75%;
+	left: 3px;
+}
+
+#palletta3 {
+	top: 75%;
+	left: calc(100% - 33px);
+}
+
+#palletta4 {
+	top: 25%;
+	left: calc(100% - 33px);
+}
+
+@keyframes click {
+	0% {rotate: 3deg;}
+	10% {rotate: -3deg;}
+	20% {rotate: 3deg;}
+	30% {rotate: -3deg;}
+	40% {rotate: 3deg;}
+	50% {rotate: -3deg;}
+	60% {rotate: 3deg;}
+	70% {rotate: -3deg;}
+	80% {rotate: 3deg;}
+	90% {rotate: -3deg;}
+	100% {rotate: 0deg;}
+}
+
+@keyframes tempo {
+	25% {left: calc(100% - 33px); top: 25%;}
+	50% {left: 3px; top: 75%;}
+	75% {left: calc(100% - 33px); top: 75%;}
+}
+
+@media screen and (max-width: 800px) {
+	body {
+		font-size: 21pt;
+		line-height: 23pt;
+	}
+
+	#abstract {
+		padding-top: 70px;
+		overflow-y: scroll;
+		height: 60%;
+		padding-bottom: 1000px;
+	}
+
+	a:hover {
+		animation: paused;
+	}
+
+	a:active {
+		animation: click 0.7s linear infinite;
+	}
+
+	a#nm {
+		top: calc(100% - 33px);
+    margin-left: 40%;
+	}
+
+  a#skip {
+    left: 40%;
+  }
+
+  a#lng {
+    top: calc(100% - 33px);
+  }
+}
