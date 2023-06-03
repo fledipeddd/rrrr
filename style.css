@@ -138,8 +138,8 @@ a#lng {
 
 @media screen and (max-width: 800px) {
 	body {
-		font-size: 17pt;
-		line-height: 19pt;
+		font-size: 19pt;
+		line-height: 21pt;
 	}
 
 	#abstract {
