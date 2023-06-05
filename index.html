@@ -13,7 +13,7 @@
 	<a id="ps" onclick="onoff()">Play</a>
 	<a id="nm" style="display: none">1/17</a>
 	<a id="title" onclick="toggleMenu()">r<sup>1</sup>, r<sup>2</sup>, r<sup>3</sup>, r<sup>4</sup>...</a>
-	<a id="lng" onclick="changeLang()">En</a>
+	<a id="lng" style="display: none" onclick="changeLang()">En</a>
 
 	<p id="abstract">
 		Cosa vediamo quando ci troviamo di fronte ad un oggetto prodotto algoritmicamente? Ad un doppio velo. La funzione di un processo algoritmico &egrave; propriamente quella di sopprimire ogni domanda sulla sua natura: di fronte ad una traduzione algoritmica, la domanda <span class="itlc">cos&rsquo;&egrave;?</span> &egrave; stata risposta a priori: la consapevolezza fenomenologica dei suoi processi viene impedita. L&rsquo;output &egrave; un significante dei nostri significanti, una rappresentazione delle nostre forme di rappresentare. Qui il profondo silenzio delle procedure (tutte le macchine sono celibi): i significanti vengono sradicati e ridotti a significanti puri, ovvero ineluttabilmente alieni ad ogni significato. Mancano d&apos;attenzione...
@@ -29,14 +29,21 @@
 <script type="text/javascript">
 	// tendina
 	const pBack = document.getElementsByTagName('a');
-
+	
 	function toggleMenu() {
 		var boxTesto = document.getElementById('abstract');
+		var lc = document.getElementById('lng');
 
 		if (boxTesto.style.display == "block") {
 			boxTesto.style.display = "none";
 		} else {
 			boxTesto.style.display = "block";
+		}
+		
+		if (lc.style.display == "block") {
+			lc.style.display = "none";
+		} else {
+			lc.style.display = "block";
 		}
 
 		for (var i = 0; i < pBack.length; i++) {
@@ -103,22 +110,21 @@
 		myAudio.play();
 	};
 
-  // lingua
-  x = 1;
-  var lng = document.getElementById("lng");
-  var abst = document.getElementById("abstract");
+	  // lingua
+	  x = 1;
+	  var lng = document.getElementById("lng");
+	  var abst = document.getElementById("abstract");
 
-  function changeLang() {
-    if (x == 1) {
-      x = 0;
-      lng.innerHTML = "It";
-      abst.innerHTML = "What do we see when we are facing an algorithmically produced object? A double veil. The function of an algorithmic process is properly to suppress any question about the nature of its output; for instance, when faced with an algorithmic translation the question what is it? has been answered <span class='itlc'>a priori</span>: phenomenological awareness of its processes is prevented. It is a signifier of our signifiers, a representation of our forms of representing.<br><br>Concatenating in cross-translations of the same text four translators* will result in infinite (subtle) variations of the source text. In these differences, algorithmic meaninglessness &mdash; devoted solely to returning signifiers &mdash; becomes apparent. The collection is embodyed through reading, which, posing as an intransitive word, wants to give back to the machinicity of processes the pleasure most proper to language: that of the <span class='itlc'>voluptuousness of signifiers.</span>";
-    } else {
-      x++;
-      lng.innerHTML = "En";
-      abst.innerHTML = "Cosa vediamo quando ci troviamo di fronte ad un oggetto prodotto algoritmicamente? Ad un doppio velo. La funzione di un processo algoritmico &egrave; propriamente quella di sopprimire ogni domanda sulla sua natura: di fronte ad una traduzione algoritmica, la domanda <span class='itlc'>cos&rsquo;&egrave;?</span> &egrave; stata risposta a priori: la consapevolezza fenomenologica dei suoi processi viene impedita. L&rsquo;output &egrave; un significante dei nostri significanti, una rappresentazione delle nostre forme di rappresentare. Qui il profondo silenzio delle procedure (tutte le macchine sono celibi): i significanti vengono sradicati e ridotti a significanti puri, ovvero ineluttabilmente alieni ad ogni significato. Mancano d&apos;attenzione...<br><br>Concatenando in traduzioni incrociate di uno stesso testo quattro traduttori, si avranno infinite (sottili) variazioni del testo di partenza. Queste differenze &mdash; strutturali, terminologiche, grammaticali &mdash; articolano l&apos;atteggiamento insignificante (incapace di interpretare) delle procedure algoritmiche, dedite rigorosamente ad evaquare significanti. La lettura, la voce, ponendosi come parola intransitiva, vuole e pu&ograve; riconquistare dalla macchinicit&agrave; dei processi l&apos;erotismo pi&ugrave; proprio del linguaggio: quello della <span class='itlc'>volutt&agrave; dei significanti.</span> Leggete, dunque! date voce a questi testi deceduti, godete del nonsenso in cui sono (siamo) stati gettati, rinvigorendo cos&igrave; la detumescenza del senso.";
-    }
-  };
-
-</script>
+	  function changeLang() {
+	    if (x == 1) {
+	      x = 0;
+	      lng.innerHTML = "It";
+	      abst.innerHTML = "What do we see when we are facing an algorithmically produced object? A double veil. The function of an algorithmic process is properly to suppress any question about the nature of its output; for instance, when faced with an algorithmic translation the question what is it? has been answered <span class='itlc'>a priori</span>: phenomenological awareness of its processes is prevented. It is a signifier of our signifiers, a representation of our forms of representing.<br><br>Concatenating in cross-translations of the same text four translators* will result in infinite (subtle) variations of the source text. In these differences, algorithmic meaninglessness &mdash; devoted solely to returning signifiers &mdash; becomes apparent. The collection is embodyed through reading, which, posing as an intransitive word, wants to give back to the machinicity of processes the pleasure most proper to language: that of the <span class='itlc'>voluptuousness of signifiers.</span>";
+	    } else {
+	      x++;
+	      lng.innerHTML = "En";
+	      abst.innerHTML = "Cosa vediamo quando ci troviamo di fronte ad un oggetto prodotto algoritmicamente? Ad un doppio velo. La funzione di un processo algoritmico &egrave; propriamente quella di sopprimire ogni domanda sulla sua natura: di fronte ad una traduzione algoritmica, la domanda <span class='itlc'>cos&rsquo;&egrave;?</span> &egrave; stata risposta a priori: la consapevolezza fenomenologica dei suoi processi viene impedita. L&rsquo;output &egrave; un significante dei nostri significanti, una rappresentazione delle nostre forme di rappresentare. Qui il profondo silenzio delle procedure (tutte le macchine sono celibi): i significanti vengono sradicati e ridotti a significanti puri, ovvero ineluttabilmente alieni ad ogni significato. Mancano d&apos;attenzione...<br><br>Concatenando in traduzioni incrociate di uno stesso testo quattro traduttori, si avranno infinite (sottili) variazioni del testo di partenza. Queste differenze &mdash; strutturali, terminologiche, grammaticali &mdash; articolano l&apos;atteggiamento insignificante (incapace di interpretare) delle procedure algoritmiche, dedite rigorosamente ad evaquare significanti. La lettura, la voce, ponendosi come parola intransitiva, vuole e pu&ograve; riconquistare dalla macchinicit&agrave; dei processi l&apos;erotismo pi&ugrave; proprio del linguaggio: quello della <span class='itlc'>volutt&agrave; dei significanti.</span> Leggete, dunque! date voce a questi testi deceduti, godete del nonsenso in cui sono (siamo) stati gettati, rinvigorendo cos&igrave; la detumescenza del senso.";
+	    }
+	  };
+	</script>
 </html>
