@@ -17,6 +17,10 @@ body {
 	line-height: 32pt;
 }
 
+sup {
+	background: none;	
+}
+
 a {
 	background: white;
 }
